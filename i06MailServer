@@ -1,17 +1,39 @@
+# 1.	Actualizar encabezado de repositorios
 sudo apt-get update
 
+# 2.	Actualizar paquetes
 sudo apt-get upgrade
 
 
 # 3.	Reiniciar servidor
 sudo reboot
+
 # 4.	Al reiniciar y reingresar con tu nombre de dominio asignar el nombre al servidor en este caso usamos el nombre mail.cursomail.com
 export HOSTNAME="mail.us4"
 sudo hostnamectl set-hostname $HOSTNAME –static
 sudo hostnamectl set-hostname $HOSTNAME –transient
-#5.	Instalamos la utilidades de dns
+
+# 5.	Instalamos la utilidades de dns
 sudo apt -y install dnsutils
-#6.	Comprobamos el dominio
+
+# 6.	Comprobamos el dominio
 host mail.cursomail.com
-#7.	Instalamos wget para descar iredmail
+
+# 7.	Instalamos wget para descar iredmail
 sudo apt -y install wget
+
+
+# 8.	Descargamos el paquete de iredmail
+wget https://github.com/iredmail/iRedMail/archive/1.5.2.tar.gz
+
+# 9.	Desempaquetamos el tar
+tar xvf 1.5.2.tar.gz
+
+# 10.	Entramos al directorio donde se desempaqueto
+cd iRedMail-*/
+
+# 11.	Damos acceso de ejecución al script que instala el software
+sudo chmod +x iRedMail.sh
+# 12.	Ejecutamos el software 
+sudo ./iRedMail.sh
+
