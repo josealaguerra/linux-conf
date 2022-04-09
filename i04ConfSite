@@ -1,0 +1,20 @@
+sudo mkdir /var/www/mis_finanzas
+
+sudo chown -R $USER:$USER /var/www/mis_finanzas
+
+sudo echo "<VirtualHost *:80>\n \tServerName mis_finanzas\n \tServerAlias www.mis_finanzas\n \tServerAdmin webmaster@localhost\n \tDocumentRoot /var/www/mis_finanzas\n \tErrorLog ${APACHE_LOG_DIR}/error.log\n \tCustomLog ${APACHE_LOG_DIR}/access.log combined\n </VirtualHost>" > /etc/apache2/sites-available/mis_finanzas.conf
+
+sudo a2ensite mis_finanzas
+
+sudo a2dissite 000-default
+
+sudo apache2ctl configtest
+
+sudo echo "<h1>It works!</h1>\n\n <p>This is the landing page of <strong>your_domain</strong>.</p>" > /var/www/your_domain/index.html
+
+sudo systemctl reload apache2
+
+
+
+
+
